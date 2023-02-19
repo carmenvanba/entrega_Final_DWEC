@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wallabob</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+  <header>
+
+  </header>
+  <main>
+    <div class="login-dark">
+      <form id="formulary">
+        <h1 class="display-4 text-uppercase text-center mb-5">Login</h1>
+        <div class="form-group">
+          <label>Email</label>
+          <input class="form-control" type="email" name="email" id="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <label class="mt-2">Contraseña</label>
+          <input class="form-control" type="password" name="password" id="password" placeholder="Password" required>
+        </div>
+        <div class="form-group mt-2">
+          <button class="btn btn-dark btn-block mt-2" id="btn_login" disabled="disabled" type="button"><a href="/main">Log In</a></button>
+        </div>
+      </form>
+    </div>
+
+  </main>
+
+
+  <script>
+
+function enableSubmit (idForm) {
+	$(idForm + " button#btn_login").removeAttr("disabled");
+}
+function disableSubmit (idForm) {
+	$(idForm + " button#btn_login").attr("disabled", "disabled");
+}
+
+$(function() {
+	checkForm("#formulary");
+});
+
+function checkForm (idForm) {
+	$(idForm).on("change keyup", function() {
+    x=document.getElementById("email");
+    y=document.getElementById("password");
+		if (x.value == "admin@wallabob.es" && y.value == "admin123")
+		{
+			enableSubmit(idForm);
+		} else {
+			disableSubmit(idForm);
+		}
+	});
+}
+
+
+  </script>
+
+
+  <script src="/js/jquery-3.3.1.slim.min.js"></script>
+  <script src="/js/popper.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>
